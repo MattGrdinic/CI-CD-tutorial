@@ -38,6 +38,13 @@ jobs:
       - name: Install DevCenter CLI Extension
         run: az extension add --name devcenter --upgrade
 
+      - name: Display Environment Details
+        shell: bash {0}
+        run: |
+          echo "env.ENVIRONMENT_NAME: $env.ENVIRONMENT_NAME";
+          echo "env.ENVIRONMENT_TYPE: $env.ENVIRONMENT_TYPE"; 
+          exit 1
+          
       - name: Az CLI login
         uses: azure/login@v1
         with:
